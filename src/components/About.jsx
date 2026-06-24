@@ -35,7 +35,9 @@ export default function About() {
             Focused on Building Systems that Improve Efficiency, Strengthen Customer Experience, and support Consistent Revenue Performance—rather than simply completing tasks.
           </p>
 
+          {/* FIXED SPACING WRAPPER */}
           <div className="cap-block rv d3">
+
             <div className="cap-label">
               Core Capability Areas
             </div>
@@ -50,10 +52,12 @@ export default function About() {
               <span>Social Media Monetization Support</span>
               <span>Omnichannel Customer Support</span>
             </div>
+
           </div>
 
-        </div> {/* ← closes atxt */}
-      </div> {/* ← closes about-in */}
+        </div>
+
+      </div>
     </section>
   )
 }
