@@ -24,7 +24,6 @@ const TESTIMONIALS = [
 function TestimonialCard({ t }) {
   const cardRef = useRef(null)
 
-  // Track mouse coordinates over the container to calculate dynamic light reflection
   const handleMouseMove = (e) => {
     if (!cardRef.current) return
     const rect = cardRef.current.getBoundingClientRect()
@@ -40,7 +39,6 @@ function TestimonialCard({ t }) {
       className="testimonial-card" 
       onMouseMove={handleMouseMove}
     >
-      {/* Light glow backdrop layer */}
       <div className="card-glow" />
       
       <div className="card-stars">{t.stars}</div>
@@ -56,7 +54,8 @@ function TestimonialCard({ t }) {
 
 export default function ClientTestimonials() {
   return (
-    <section className="testimonials-section">
+    /* FIXED: Added id="testimonials" to anchor the navbar link here */
+    <section id="testimonials" className="testimonials-section">
       <div className="container">
         <span className="section-subtitle">Client Feedback</span>
         <h2 className="section-title">
@@ -80,11 +79,17 @@ export default function ClientTestimonials() {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,400;1,500&display=swap');
 
+        /* Added smooth scrolling anchor logic backup */
+        html {
+          scroll-behavior: smooth;
+        }
+
         .testimonials-section {
           background: #090909;
           color: #ffffff;
           padding: 6rem 2rem;
           font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+          scroll-margin-top: 4rem; /* Keeps navbar from blocking section top */
         }
 
         .container {
@@ -118,7 +123,6 @@ export default function ClientTestimonials() {
           align-items: stretch;
         }
 
-        /* Testimonial Card Base Wrapper */
         .testimonial-card {
           position: relative;
           background: rgba(15, 15, 15, 0.85);
@@ -131,7 +135,6 @@ export default function ClientTestimonials() {
           transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
         }
 
-        /* Dynamic Lighting Spotlight engine overlay */
         .card-glow {
           position: absolute;
           inset: 0;
@@ -146,7 +149,6 @@ export default function ClientTestimonials() {
           z-index: 1;
         }
 
-        /* "Light Up" Activation State Rule definitions */
         .testimonial-card:hover {
           transform: translateY(-2px);
           border-color: rgba(234, 170, 8, 0.5);
@@ -157,7 +159,6 @@ export default function ClientTestimonials() {
           opacity: 1;
         }
 
-        /* Safeguard z-index so text content remains fully selectable and interactive */
         .card-stars, .card-quote, .card-author-block {
           position: relative;
           z-index: 2;
@@ -182,7 +183,6 @@ export default function ClientTestimonials() {
           -webkit-font-smoothing: antialiased;
         }
 
-        /* Absolute Author Alignment Anchor */
         .card-author-block {
           margin-top: auto;
           padding-top: 1rem;
