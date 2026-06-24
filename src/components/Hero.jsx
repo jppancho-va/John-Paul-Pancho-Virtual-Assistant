@@ -3,26 +3,24 @@ export default function Hero() {
     <section id="hero" className="wrap">
       <div className="hero-l">
         <div className="hero-ey">
-          Senior Virtual Assistant · 12+ Years · U.S.-Based Clients
+          Revenue Operations & Virtual Support Specialist
         </div>
 
         <h1 className="hero-h1">
-          REAL WORK.
-          <span className="hl">REAL RESULTS.</span>
+          OPERATIONAL SUPPORT.
+<span className="hl">REVENUE IMPACT. CLIENT RETENTION.</span>
         </h1>
 
         <p className="hero-sub">
-          I help U.S.-based businesses streamline operations, retain more clients,
-          and unlock revenue — with 12+ years of proven performance across healthcare,
-          e-commerce, hospitality, and finance.
+          I help healthcare practices, e-commerce brands, and service-based businesses streamline operations, improve customer experience, and support revenue-generating workflows through structured virtual assistance and operational execution.
         </p>
 
         <div className="hero-ctas">
           <a href="#book" className="btn-y" data-track="hero_book">
-            Book Free Discovery Call →
+            Book Interview →
           </a>
           <a href="#services" className="btn-o" data-track="hero_services">
-            See My Services
+            View Capabilities
           </a>
         </div>
 
