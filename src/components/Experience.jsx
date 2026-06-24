@@ -49,9 +49,33 @@ export default function Experience() {
         <div className="exp-grid">
           {JOBS.map(job => (
             <div key={job.company} className={`ec rv ${job.delay}`}>
-              {/* PLACES & COLORS SWAPPED HERE */}
-              <div className="ec-role" style={{ color: 'var(--y)', fontWeight: 'bold' }}>{job.role}</div>
-              <div className="ec-co" style={{ color: '#ffffff', marginTop: '0.25rem' }}>{job.company}</div>
+              {/* ROLE STANDS OUT LARGER, COMPANY BELOW IS SMALLER */}
+              <div 
+                className="ec-role" 
+                style={{ 
+                  color: 'var(--y)', 
+                  fontWeight: '800', 
+                  fontSize: '1.25rem', 
+                  lineHeight: '1.3',
+                  letterSpacing: '0.02em'
+                }}
+              >
+                {job.role}
+              </div>
+              
+              <div 
+                className="ec-co" 
+                style={{ 
+                  color: '#ffffff', 
+                  fontSize: '0.95rem', 
+                  fontWeight: '500',
+                  opacity: '0.85',
+                  marginTop: '0.4rem',
+                  marginBottom: '0.5rem'
+                }}
+              >
+                {job.company}
+              </div>
               
               <div className="ec-date">{job.date}</div>
               <div className="ec-kpi">
