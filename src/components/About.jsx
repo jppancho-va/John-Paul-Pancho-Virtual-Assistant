@@ -16,7 +16,7 @@ export default function About() {
           </h2>
 
           <p className="rv d2">
-            Many businesses Lose Revenue not because of lack of demand, but due to Operational Bottlenecks—Slow Customer Response Times, Inefficient Workflows, Fragmented Systems, and Inconsistent Execution Across Teams.
+            Many businesses lose Revenue not because of lack of demand, but due to Operational Bottlenecks—Slow Customer Response Times, Inefficient Workflows, Fragmented Systems, and Inconsistent Execution Across Teams.
           </p>
 
           <p className="rv d2">
@@ -26,7 +26,7 @@ export default function About() {
           <p className="rv d2">
             Experience includes generating{" "}
             <strong style={{ color: 'var(--y)' }}>
-              $121,616.93 in Prepaid Revenue within 2 Weeks at HotelPlanner
+              $121,616.93 in Prepaid Revenue within 2 Weeks at Hotel Reservations
             </strong>{" "}
             and Managing 1,000+ Monthly Healthcare Interactions at UnitedHealthcare/Optum under strict HIPAA compliance in High-Volume Environments.
           </p>
@@ -42,15 +42,35 @@ export default function About() {
               Core Capability Areas
             </div>
 
-            <div className="atags">
-              <span>Medical VA (HIPAA–Compliant Operations)</span>
-              <span>High-Ticket Sales & Booking Support</span>
-              <span>E-commerce Virtual Assistance</span>
-              <span>CRM Systems & Workflow Automation</span>
-              <span>Customer Success & Client Retention</span>
-              <span>Revenue Operations Support</span>
-              <span>Social Media Monetization Support</span>
-              <span>Omnichannel Customer Support</span>
+            {/* STRUCTURED OPERATIONAL PILLARS */}
+            <div className="cap-pillars-grid">
+              
+              <div className="cap-pillar">
+                <div className="pillar-title">Operations & Automation</div>
+                <div className="atags">
+                  <span>CRM Systems & Workflow Automation</span>
+                  <span>Revenue Operations Support</span>
+                  <span>Medical VA (HIPAA–Compliant Operations)</span>
+                </div>
+              </div>
+
+              <div className="cap-pillar">
+                <div className="pillar-title">Sales & Growth</div>
+                <div className="atags">
+                  <span>High-Ticket Sales & Booking Support</span>
+                  <span>E-commerce Virtual Assistance</span>
+                  <span>Social Media Monetization Support</span>
+                </div>
+              </div>
+
+              <div className="cap-pillar">
+                <div className="pillar-title">Retention & Support</div>
+                <div className="atags">
+                  <span>Customer Success & Client Retention</span>
+                  <span>Omnichannel Customer Support</span>
+                </div>
+              </div>
+
             </div>
 
           </div>
