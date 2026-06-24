@@ -25,7 +25,8 @@ export default function ToolsMarquee() {
   return (
     <div className="tools wrap">
       <div className="tools-in">
-        <div className="tlbl rv">Tech Stack &amp; Operational Performance</div>
+        {/* Made this layout text gold, bolder, and more pronounced */}
+        <div className="tlbl rv custom-marquee-header">Tech Stack &amp; Operational Performance</div>
       </div>
       
       <div className="marquee-stage-flat">
@@ -56,13 +57,24 @@ export default function ToolsMarquee() {
       </div>
 
       <style jsx global>{`
+        /* Enhanced Gold Section Header Styling */
+        .custom-marquee-header {
+          color: #eaaa08 !important;
+          font-size: 1.15rem !important;
+          font-weight: 700 !important;
+          letter-spacing: 0.12em !important;
+          text-transform: uppercase;
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+
         .marquee-stage-flat {
           overflow: hidden;
           padding: 2rem 0;
           width: 100%;
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.5rem; /* Increased spacing between rows */
         }
 
         .mqwrap-flat {
@@ -81,7 +93,6 @@ export default function ToolsMarquee() {
           align-items: center;
         }
 
-        /* Continuous Animations */
         .to-left {
           animation: scrollLeft 38s linear infinite;
         }
@@ -90,12 +101,10 @@ export default function ToolsMarquee() {
           animation: scrollRight 42s linear infinite;
         }
 
-        /* Smooth slow down or pause on user focus */
         .mqtrack-flat:hover {
           animation-play-state: paused;
         }
 
-        /* Pill Aesthetics */
         .mpill-flat {
           display: inline-flex;
           align-items: center;
@@ -103,6 +112,7 @@ export default function ToolsMarquee() {
           transition: all 0.25s ease;
         }
 
+        /* Tool Pill Variants (Maintained) */
         .tool-pill {
           gap: 0.65rem;
           background: rgba(20, 20, 20, 0.85);
@@ -119,24 +129,28 @@ export default function ToolsMarquee() {
           background: rgba(28, 28, 28, 0.95);
         }
 
+        /* Thicker, More Premium CSAT Pill Variant Styling */
         .csat-pill {
-          gap: 0.6rem;
-          background: rgba(234, 170, 8, 0.05);
-          border: 1px solid rgba(234, 170, 8, 0.15);
-          padding: 0.5rem 1.2rem;
-          border-radius: 6px;
-          font-size: 0.85rem;
-          color: #e5e7eb;
+          gap: 0.75rem;
+          background: rgba(234, 170, 8, 0.07); /* Slightly stronger contrast background */
+          border: 1px solid rgba(234, 170, 8, 0.22);
+          padding: 0.85rem 1.6rem; /* Increased padding to make them explicitly thicker */
+          border-radius: 8px;
+          font-size: 0.92rem; /* Slightly larger, clearer font size */
+          color: #f3f4f6;
+          font-weight: 500; /* Increased overall font thickness */
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         }
 
         .csat-pill:hover {
           border-color: #eaaa08;
-          background: rgba(234, 170, 8, 0.1);
+          background: rgba(234, 170, 8, 0.12);
+          transform: translateY(-1px);
         }
 
         .csat-stars {
           color: #eaaa08;
-          font-weight: 600;
+          font-weight: 700;
         }
 
         .csat-text {
@@ -144,8 +158,9 @@ export default function ToolsMarquee() {
         }
 
         .csat-author {
-          font-weight: 600;
+          font-weight: 700;
           color: #eaaa08;
+          margin-left: 0.25rem;
         }
 
         .tool-icon {
