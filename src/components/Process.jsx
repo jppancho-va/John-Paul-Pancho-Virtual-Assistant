@@ -2,19 +2,19 @@ const STEPS = [
   {
     num: '01',
     title: 'DISCOVERY CALL',
-    desc: 'We spend 30 minutes mapping your operational bottlenecks and goals. No sales pitch — just honest strategy tailored to your business stage and industry.',
+    desc: 'A 30-minute deep dive to map your workflow bottlenecks and goals. No fluff, no aggressive sales pitch—just a transparent, actionable operational strategy.',
     delay: '',
   },
   {
     num: '02',
     title: 'ONBOARDING & SETUP',
-    desc: 'I integrate into your existing tools, learn your brand voice, and map your workflows — fully operational and autonomous within 48 hours.',
+    desc: 'I seamlessly integrate into your current tech stack, absorb your brand voice, and document your workflows. Fully operational and autonomous within 48 hours.',
     delay: 'd1',
   },
   {
     num: '03',
     title: 'EXECUTION & RESULTS',
-    desc: 'I handle the work while you focus on growth. Weekly reports, clear KPIs, and a dedicated partner who scales right alongside your business.',
+    desc: 'I own the execution while you focus on scaling. Expect data-backed weekly reporting, absolute metric accountability, and proactive system optimization.',
     delay: 'd2',
   },
 ]
@@ -31,9 +31,28 @@ export default function Process() {
         </div>
 
         <div className="steps">
-          {STEPS.map(s => (
+          {STEPS.map((s, index) => (
             <div key={s.num} className={`step rv ${s.delay}`}>
-              <div className="step-num">{s.num}</div>
+              {/* Flex wrapper for the numbers and centered horizontal lines */}
+              <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                <div className="step-num">{s.num}</div>
+                
+                {/* Dynamically adds the timeline connecting line between steps 01-02 and 02-03, but omits it after step 03 */}
+                {index < STEPS.length - 1 && (
+                  <div 
+                    className="step-line" 
+                    style={{
+                      flexGrow: 1,
+                      height: '1px',
+                      background: 'var(--y)',
+                      opacity: 0.3,
+                      marginLeft: '1.5rem',
+                      marginRight: '-1.5rem'
+                    }}
+                  />
+                )}
+              </div>
+              
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
             </div>
