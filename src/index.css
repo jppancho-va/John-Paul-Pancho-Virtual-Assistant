@@ -9,15 +9,15 @@
   /* Premium Executive Color Palette */
   --black: #070707;
   --white: #F9F7F2;
-  --y: #F0C93B;       /* Vibrant Gold */
-  --yd: #D4A920;      /* Darker Gold */
-  --ybg: rgba(240, 201, 59, 0.08); /* Transparent Gold Glow */
-  --bdr: #252525;      /* Subtle Dark Border */
+  --y: #F0C93B;       
+  --yd: #D4A920;      
+  --ybg: rgba(240, 201, 59, 0.08); 
+  --bdr: #252525;      
   --gray: #787878;
   
   /* Typography Stacks */
-  --ffd: 'Playfair Display', serif;   /* Headings */
-  --ffb: 'Inter', sans-serif;         /* Body and UI Elements */
+  --ffd: 'Playfair Display', serif;   
+  --ffb: 'Inter', sans-serif;         
   --max: 1280px;
 }
 
@@ -38,12 +38,12 @@ body {
   left: 0; 
   width: 100vw; 
   height: 100vh;
-  z-index: -1; /* Keeps the interactive gold particle stream strictly in the background */
+  z-index: -1; 
   pointer-events: auto; 
-  cursor: crosshair; /* Changes cursor to a sleek precision look over the canvas */
+  cursor: crosshair; 
 }
 
-/* ─── WIREFRAME LAYOUT & CENTERING FOUNDATION ───── */
+/* ─── CENTERING FOUNDATION (WEBSITE & MOBILE) ───── */
 .app-container { 
   display: flex; 
   flex-direction: column; 
@@ -51,30 +51,146 @@ body {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  z-index: 1; /* Sits cleanly on top of the fixed background particles */
+  z-index: 1; 
 }
 
 .wrap { 
   width: 100%; 
   max-width: var(--max); 
   margin: 0 auto; 
-  padding: 0 24px; /* Mobile safety gutters */
+  padding: 0 24px; 
   display: flex; 
   flex-direction: column; 
   align-items: center; 
 }
 
-/* Global Content Section Block Alignment */
-section, header, footer {
+/* ─── SUB-COMPONENT STRETCH & ALIGN FIXES ────────── */
+/* This forces every standalone section inside <main className="wrap"> to align properly */
+.wrap > *, main > *, section {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 100px; /* Uniform section spacing */
 }
 
-/* ─── IMAGE FORMAT STRUCTURE MATRIX ─────────────── */
+/* ─── WIREFRAME STRUCTURE LAYOUTS ───────────────── */
 
-/* 2-Column Split Layout (Hero / Final CTA) */
+/* 2-Column Split Layout (Used in Hero / Booking / About) */
 .split-grid {
   display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  width: 100%;
+  align-items: center;
+}
+
+/* 2x2 Asymmetrical Features/Services Grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* 4-Column Metric / StatsBar Grid Cards */
+.metrics-row, .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* FAQ / UI Rows List Container */
+.ui-row-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 32px;
+}
+
+.ui-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--bdr);
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.ui-row:hover {
+  background: var(--ybg); 
+}
+
+/* ─── TYPOGRAPHY & GOLD INTERACTIVE HIGHLIGHTS ──── */
+h1, h2, h3, .logo { 
+  font-family: var(--ffd); 
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Target internal text alignment default resets */
+p, span {
+  font-family: var(--ffb);
+}
+
+.gold-accent {
+  color: var(--y);
+  text-shadow: 0 0 10px rgba(240, 201, 59, 0.2); 
+}
+
+/* Global Executive Buttons & Links Reset */
+button, .btn-y {
+  font-family: var(--ffb);
+  background: var(--y);
+  color: var(--black);
+  border: none;
+  padding: 14px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover, .btn-y:hover {
+  background: var(--white);
+  box-shadow: 0 0 15px var(--y); 
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--y);
+}
+
+/* ─── RESPONSIVE RESPONSIVENESS RE-ALIGNMENTS ──── */
+@media (max-width: 992px) {
+  .metrics-row, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .split-grid { grid-template-columns: 1fr; text-align: center; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .metrics-row, .stats-grid { grid-template-columns: 1fr; }
+  .wrap > *, main > *, section { margin-bottom: 60px; }
+  
+  /* Force sub-elements to center on mobile viewports */
+  .split-grid > * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
