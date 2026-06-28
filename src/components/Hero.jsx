@@ -51,3 +51,38 @@ export default function Hero() {
     </section>
   )
 }
+import React from 'react';
+
+const Hero = () => {
+  return (
+    <section className="hero-section">
+      {/* Left Column: Text & Content Elements */}
+      <div className="hero-left">
+        <p style={{ color: 'var(--y)', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '14px', marginBottom: '16px', fontWeight: '600' }}>
+          Senior Virtual Assistant • 12+ Years • U.S.-Based Clients
+        </p>
+        <h1 style={{ fontSize: 'clamp(2.5rem, 4.5vw, 4rem)', lineHeight: '1.15', marginBottom: '24px', textAlign: 'left' }}>
+          REAL WORK.<br />REAL <span className="gold-accent">RESULTS.</span>
+        </h1>
+        <p style={{ color: 'var(--white)', opacity: '0.8', max_width: '540px', marginBottom: '32px', fontSize: '18px' }}>
+          I help U.S.-based businesses streamline operations, retain more clients, and unlock revenue — with 12+ years of proven performance across healthcare, e-commerce, hospitality, and finance.
+        </p>
+        <div className="hero-actions">
+          <button className="btn-y">Book Free Discovery Call →</button>
+          <a href="#services" style={{ color: 'var(--white)', fontWeight: '600', textDecoration: 'underline' }}>
+            See My Services
+          </a>
+        </div>
+      </div>
+
+      {/* Right Column: Visual Frame matching image_06db86.png */}
+      <div className="hero-right">
+        <div className="hero-image-frame">
+          {/* Your profile portrait image element will map directly inside here */}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
