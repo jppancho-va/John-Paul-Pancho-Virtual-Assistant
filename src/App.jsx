@@ -3,10 +3,11 @@ import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import StatsBar from './components/StatsBar';
 import About from './components/About';
+import ToolsMarquee from './components/ToolsMarquee';
+import ProvenImpact from './components/ProvenImpact'; // Integrated new section name
 import Services from './components/Services';
 import Experience from './components/Experience';
 import Process from './components/Process';
-import ToolsMarquee from './components/ToolsMarquee';
 import PhotoShowcase from './components/PhotoShowcase';
 import Testimonials from './components/Testimonials';
 import Booking from './components/Booking';
@@ -29,15 +30,16 @@ export default function App() {
       {/* Core Navigation */}
       <NavBar />
 
-      {/* Main Content Sections */}
-      <main className="wrap">
+      {/* Main Content Sections - Clean, full-bleed flexible matrix layout */}
+      <main style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Hero />
         <StatsBar />
         <About />
+        <ToolsMarquee />
+        <ProvenImpact />
         <Services />
         <Experience />
         <Process />
-        <ToolsMarquee />
         <PhotoShowcase />
         <Testimonials />
         <Booking />
