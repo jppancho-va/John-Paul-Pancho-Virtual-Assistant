@@ -120,14 +120,9 @@ body {
   background: var(--ybg);
 }
 
-/* FIXED: FULL-BLEED SCREEN WIDE STATS BAR DIVIDER (BREAKS OUT OF WRAP CONSTRAINTS) */
+/* FIXED: STABLE FULL-WIDTH SECTION INNER DIVIDER (NO 100VW OVERLAP SHIFTS) */
 .stats-section-divider {
-  width: 100vw !important;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
   background: rgba(15, 15, 15, 0.4);
   border-top: 1px solid var(--bdr);
   border-bottom: 1px solid var(--bdr);
@@ -138,15 +133,15 @@ body {
   align-items: center;
 }
 
+/* FIXED: 7-COLUMN MATRIX (4 STAT BOXES INTERLACED WITH 3 DIVIDER LINES) */
 .stats-grid {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr !important;
   align-items: center !important;
   width: 100%;
   max-width: var(--max);
   padding: 0 40px;
-  gap: 24px;
+  gap: 16px;
 }
 
 .stat-box {
@@ -154,12 +149,11 @@ body {
   flex-direction: column !important;
   align-items: center !important;
   text-align: center !important;
-  flex: 1 !important;
 }
 
 .stat-number {
   font-family: var(--ffd);
-  font-size: 3rem;
+  font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
   color: var(--y);
   line-height: 1;
@@ -176,7 +170,7 @@ body {
   white-space: nowrap; 
 }
 
-/* Fixed line orientation for horizontal dividers */
+/* Fixed line orientation for vertical dividers */
 .sdv {
   width: 1px !important;
   height: 50px !important;
@@ -522,10 +516,10 @@ a:hover {
 @media (max-width: 992px) {
   .stats-grid {
     padding: 0 20px;
-    gap: 16px;
+    gap: 12px;
   }
   .stat-number {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
   }
   .stat-label {
     font-size: 11px;
@@ -545,12 +539,9 @@ a:hover {
   #about .split-grid > *:first-child { order: 2; } 
   #about .split-grid > *:last-child { order: 1; }
   
-  /* FIXED: Smooth mobile adaptation for the horizontal full-bleed breakout layout */
-  .stats-section-divider {
-    padding: 40px 0;
-  }
+  /* FIXED: Mobile column layout transformation for the stats structure */
   .stats-grid {
-    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
     gap: 32px !important;
     padding: 0 20px;
   }
