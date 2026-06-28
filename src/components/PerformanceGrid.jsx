@@ -4,8 +4,8 @@ const PerformanceGrid = () => {
   return (
     <section className="performance-grid">
       <div className="grid-header">
-        <h2 className="section-title">PROVEN IMPACT & PERFORMANCE</h2>
-        <p className="section-subtitle">Real-time results from my operations workflows. I don't just manage tasks; I drive revenue and efficiency.</p>
+        {/* Matching your Tech Stack header style */}
+        <h2 className="tech-stack-header">PROVEN IMPACT & PERFORMANCE</h2>
       </div>
 
       <div className="grid-container">
@@ -30,10 +30,6 @@ const PerformanceGrid = () => {
           <img src="/images/customer_survey2.jpg" alt="Survey 2" />
           <img src="/images/customer_survey3.jpg" alt="Survey 3" />
         </div>
-      </div>
-
-      <div className="grid-footer" style={{ marginTop: '30px', textAlign: 'center' }}>
-        <a href="#booking" className="cta-button">BOOK A DISCOVERY CALL</a>
       </div>
     </section>
   );
