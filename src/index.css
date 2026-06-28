@@ -33,7 +33,7 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: var(--ffb); }
 
-/* ─── FUTURISTIC BACKGROUND MECHANICS ─── */
+/* ─── BACKGROUND MECHANICS ─────────────────────── */
 body::before {
   content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none;
   background-image: linear-gradient(rgba(240, 201, 59, 0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(240, 201, 59, 0.012) 1px, transparent 1px);
@@ -45,51 +45,43 @@ body::before {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 2;
   background: radial-gradient(650px circle at var(--global-x, 0px) var(--global-y, 0px), rgba(240, 201, 59, 0.055), transparent 80%);
 }
-main, section, footer, .wrap, .stats, .tools, .photos { position: relative; z-index: 10; }
 
-/* ─── PERFORMANCE GRID SECTION ─── */
-.performance-grid { padding: 120px 20px; }
+/* ─── LAYOUT & COMPONENTS ───────────────────────── */
+main, section, footer, .wrap, .stats, .tools, .photos, .performance-grid { position: relative; z-index: 10; }
+
+/* (Include your existing Nav, Hero, Stats, About, Services, Exp, Process, Tools, Photos, Testi, Booking, Footer, and Custom Components here as they were) */
+
+/* ─── PERFORMANCE GRID FINALIZED ────────────────── */
+.performance-grid { padding: 120px 36px; }
 .tech-stack-header {
   font-family: var(--ffd);
-  color: #D4AF37;
+  font-size: clamp(36px, 5vw, 66px);
+  color: var(--y);
   text-align: center;
   margin-bottom: 40px;
-  letter-spacing: 2px;
-  font-size: clamp(36px, 5vw, 66px);
+  letter-spacing: 0.02em;
 }
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 1200px;
+  max-width: var(--max);
   margin: 0 auto;
 }
 .col { display: flex; flex-direction: column; gap: 15px; }
 .col img {
   width: 100%; height: auto; border-radius: 4px;
   border: 1px solid var(--bdr);
-  transition: transform .3s;
+  transition: transform .3s, border-color .3s;
 }
 .col img:hover { transform: scale(1.02); border-color: var(--y); }
 
-/* ─── REMAINING COMPONENTS (Truncated for brevity, keep your existing logic) ─── */
-/* ... keep your existing NAV, HERO, STATS, ABOUT, SERVICES, EXP, PROCESS, TOOLS, PHOTOS, TESTIMONIALS, BOOKING, FOOTER styles ... */
-/* Ensure cards share the same style */
-.sc, .ec, .tc, .phq {
-  background: rgba(12, 12, 12, 0.75) !important;
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(240, 201, 59, 0.06) !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  transition: all .3s ease;
-}
-.sc:hover, .ec:hover, .tc:hover { border-color: var(--y) !important; background: rgba(240,201,59,.02) !important; }
-
-/* ─── RESPONSIVE ─── */
+/* ─── RESPONSIVE ────────────────────────────────── */
 @media (max-width: 1024px) {
   .grid-container { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .grid-container { grid-template-columns: 1fr; }
-  .tech-stack-header { font-size: 2rem; }
+  .performance-grid { padding: 80px 20px; }
+  /* (Keep your other mobile responsive blocks here) */
 }
