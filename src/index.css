@@ -65,21 +65,21 @@ body {
 }
 
 /* ─── SUB-COMPONENT STRETCH & ALIGN FIXES ────────── */
-/* This forces every standalone section inside <main className="wrap"> to align properly */
+/* Forces nested components inside <main className="wrap"> to sit properly on center grid lines */
 .wrap > *, main > *, section {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px; /* Uniform section spacing */
+  margin-bottom: 100px; 
 }
 
 /* ─── WIREFRAME STRUCTURE LAYOUTS ───────────────── */
 
-/* 2-Column Split Layout (Used in Hero / Booking / About) */
+/* 2-Column Split Layout (Used across multi-section blocks) */
 .split-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(300px, 1.2fr) minmax(300px, 0.8fr);
   gap: 48px;
   width: 100%;
   align-items: center;
@@ -134,7 +134,6 @@ h1, h2, h3, .logo {
   line-height: 1.2;
 }
 
-/* Target internal text alignment default resets */
 p, span {
   font-family: var(--ffb);
 }
@@ -165,6 +164,18 @@ button:hover, .btn-y:hover {
   box-shadow: 0 0 15px var(--y); 
 }
 
+.btn-o {
+  font-family: var(--ffb);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.btn-o:hover {
+  color: var(--y);
+}
+
 a {
   color: var(--white);
   text-decoration: none;
@@ -175,86 +186,210 @@ a:hover {
   color: var(--y);
 }
 
-/* ─── RESPONSIVE RESPONSIVENESS RE-ALIGNMENTS ──── */
-@media (max-width: 992px) {
-  .metrics-row, .stats-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-  .split-grid { grid-template-columns: 1fr; text-align: center; }
-  .feature-grid { grid-template-columns: 1fr; }
-  .metrics-row, .stats-grid { grid-template-columns: 1fr; }
-  .wrap > *, main > *, section { margin-bottom: 60px; }
-  
-  /* Force sub-elements to center on mobile viewports */
-  .split-grid > * {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-}
-/* ─── HERO WIREFRAME STRUCTURE FIX ──────────────── */
-.hero-section {
+/* ─── ZOOM-PROOF HERO WIREFRAME LAYOUT ──────────── */
+#hero.hero-grid-container, #hero {
   display: grid !important;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 64px;
+  grid-template-columns: minmax(320px, 1.2fr) minmax(300px, 0.8fr); /* Rigid safety bounds for browser zoom scales */
+  gap: 60px;
   width: 100%;
-  min-height: 75vh;
+  min-height: 80vh;
   align-items: center;
-  text-align: left !important; /* Forces text to the left side like the wireframe */
-  margin-bottom: 80px;
+  padding: 80px 0;
+  margin-bottom: 100px;
 }
 
-/* Left Content Wrapper inside Hero */
-.hero-left {
+/* Left Side Text Content Alignment */
+.hero-l {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Aligns headings, paragraphs, and buttons to the left */
-  text-align: left;
+  align-items: flex-start; /* Keeps items locked left like image_06db86.png */
+  text-align: left !important;
+  min-width: 0;
 }
 
-/* Right Media/Image Frame inside Hero */
-.hero-right {
+.hero-ey {
+  color: var(--y);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  white-space: nowrap;
+}
+
+.hero-h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem); 
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: left !important;
+}
+
+.hero-h1 .hl {
+  color: var(--y);
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--white);
+  opacity: 0.85;
+  max-width: 580px;
+  margin-bottom: 36px;
+  text-align: left !important;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  flex-direction: row !important;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+/* Bottom Trust Indicators */
+.htrust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  border-top: 1px solid var(--bdr);
+  padding-top: 24px;
+  width: 100%;
+}
+
+.ht {
+  font-size: 13px;
+  color: var(--gray);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ht::before {
+  content: "•"; 
+  color: var(--y); 
+  margin-right: 8px; 
+  font-size: 16px;
+}
+
+/* Right Side Portrait & Absolute Badge Elements */
+.hero-r {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.hero-image-frame {
+.hero-image-wrapper {
+  position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 380px;
+  min-width: 280px;
+}
+
+.hero-photo {
+  width: 100%;
   aspect-ratio: 4 / 5;
-  background: var(--bdr);
-  border: 1px solid #333;
-  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid var(--bdr);
+  background: #111;
+  display: block;
 }
 
-/* Row wrapper for the CTA buttons */
-.hero-actions {
+/* Floating Micro-Metric Cards */
+.flc {
+  position: absolute;
+  background: rgba(10, 10, 10, 0.92); /* Higher opacity preserves image contrast during deep zooms */
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bdr);
+  padding: 16px 20px;
   display: flex;
-  flex-direction: row !important;
-  align-items: center;
-  gap: 20px;
-  width: auto !important;
-  margin-top: 12px;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  z-index: 2;
 }
 
-/* Responsive collapse for mobile viewports */
+.flc strong { 
+  color: var(--y); 
+  font-size: 24px; 
+  font-family: var(--ffd); 
+  margin-bottom: 2px; 
+}
+
+.flc span { 
+  font-size: 12px; 
+  color: var(--white); 
+  opacity: 0.7; 
+  white-space: nowrap; 
+}
+
+/* Strict layout anchor points across the wrapper face edge */
+.fc1 { 
+  top: 12%; 
+  left: -35px; 
+}
+
+.fc2 { 
+  bottom: 15%; 
+  right: -35px; 
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ────────────────────── */
+@media (max-width: 992px) {
+  .fc1 { left: -15px; }
+  .fc2 { right: -15px; }
+  .metrics-row, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
-  .hero-section {
+  #hero, .split-grid {
     grid-template-columns: 1fr !important;
     text-align: center !important;
-    gap: 40px;
+    gap: 48px;
+    padding: 40px 0;
   }
-  .hero-left {
+  
+  .hero-l { 
+    align-items: center; 
+    text-align: center !important; 
+  }
+  
+  .hero-h1, .hero-sub {
+    text-align: center !important;
+  }
+  
+  .hero-ctas { 
+    flex-direction: column !important; 
+    width: 100%; 
+    gap: 16px; 
+  }
+  
+  .btn-y { 
+    width: 100%; 
+    justify-content: center; 
+  }
+  
+  .htrust { 
+    justify-content: center; 
+  }
+  
+  /* Retain correct absolute overlays for phone frames */
+  .fc1 { top: 8%; left: -10px; }
+  .fc2 { bottom: 10%; right: -10px; }
+  
+  .feature-grid, .metrics-row, .stats-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .wrap > *, main > *, section { 
+    margin-bottom: 60px; 
+  }
+  
+  .split-grid > * {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-  .hero-actions {
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 16px;
   }
 }
