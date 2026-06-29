@@ -77,3 +77,73 @@ main { width: 100%; }
 .btn-o { background: transparent; border: 1px solid var(--y); color: var(--white); padding: 14px 28px; text-decoration: none; border-radius: 4px; }
 
 .hero-image-wrapper { width: 100%; position: relative; }
+/* ─── FIXED NAVBAR FINALIZED ──────────────────── */
+.nav-master-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.nav-master-container.on {
+  background: rgba(7, 7, 7, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.nav-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.logo-brand {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.logo-brand:hover { opacity: 0.8; }
+.gold-pipe { color: var(--y); }
+
+.nlinks { display: flex; list-style: none; gap: 30px; }
+.nlinks a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover Highlight Effect */
+.nlinks a:hover { color: var(--y); }
+
+/* CTA Button in Nav */
+.ncta {
+  background: transparent;
+  border: 1px solid var(--y);
+  color: var(--white);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.ncta:hover { background: var(--y); color: var(--black); }
+
+/* Mobile Menu Hidden by default */
+.brgr { display: none; background: none; border: none; cursor: pointer; }
+.mmenu { display: none; }
+
+@media (max-width: 768px) {
+  .nlinks, .ncta { display: none; }
+  .brgr { display: block; }
+}
