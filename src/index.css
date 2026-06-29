@@ -265,7 +265,54 @@ color: var(--y);
 /* The Gold Highlight */
 .mpill:hover, .fpill:hover { border: 1px solid var(--y); color: var(--y); background: var(--ybg); }
 .pill-icon { margin-right: 8px; }
+.marquee-wrapper { background: #070707; padding: 40px 0; overflow: hidden; }
 
+/* Section Header with Borders */
+.section-header {
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 15px 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-title { 
+  color: var(--y); 
+  letter-spacing: 2px; 
+  font-size: 0.8rem; 
+  font-weight: 700; 
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.mt-20 { margin-top: 20px; }
+
+/* Marquee Tracks */
+.mqwrap { display: flex; width: 100%; cursor: pointer; margin-bottom: 15px; }
+
+.mqtrack-rtl, .mqtrack-ltr { display: flex; gap: 15px; animation-duration: 60s; animation-timing-function: linear; animation-iteration-count: infinite; }
+.mqtrack-rtl { animation-name: scrollLeft; }
+.mqtrack-ltr { animation-name: scrollRight; }
+
+.mqwrap:hover .mqtrack-rtl, .mqwrap:hover .mqtrack-ltr { animation-play-state: paused; }
+
+@keyframes scrollLeft { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
+@keyframes scrollRight { from { transform: translateX(-33.33%); } to { transform: translateX(0); } }
+
+/* Pill Styling */
+.mpill { 
+  display: flex; align-items: center; padding: 8px 18px; border: 1px solid #1a1a1a; border-radius: 50px; 
+  background: #0a0a0a; color: #fff; font-size: 0.8rem; white-space: nowrap; transition: 0.3s; 
+}
+.fpill { 
+  padding: 12px 24px; border: 1px solid #1a1a1a; border-radius: 50px; 
+  background: #0a0a0a; color: #a0a0a0; font-size: 0.85rem; white-space: nowrap; transition: 0.3s; 
+}
+
+.pill-icon { margin-right: 8px; }
+
+/* Hover Effects */
+.mpill:hover, .fpill:hover { border: 1px solid var(--y); color: var(--y); }
 
 
 
