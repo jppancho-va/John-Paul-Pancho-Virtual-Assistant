@@ -5,7 +5,7 @@ export default function About() {
         <div className="about-grid">
           {/* Left Column: Photo */}
           <div className="about-l">
-            <img src="/laptop1.jpg" alt="Operational Execution" className="about-photo" />
+            <img src="/laptop1.png" alt="Operational Execution" className="about-photo" />
           </div>
 
           {/* Right Column: Narrative & Pillars */}
