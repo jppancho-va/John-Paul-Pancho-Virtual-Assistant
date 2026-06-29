@@ -44,7 +44,6 @@ export default function NavBar() {
           <li><a href="#services">Services</a></li>
           <li><a href="#exp">Experience</a></li>
           <li><a href="#testi">Testimonials</a></li>
-          <li><a href="#book">Contact</a></li>
         </ul>
 
         <a href="#book" className="ncta" data-track="nav_book">
